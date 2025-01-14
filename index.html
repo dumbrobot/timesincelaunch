@@ -27,8 +27,8 @@
     </div>
 
     <script>
-        // Set the start date and time
-        const startDate = new Date('2024-12-24T22:57:50');
+        // Set the start date and time in Eastern Time (EST/EDT)
+        const startDate = new Date('2024-12-24T22:57:50-05:00'); // Eastern Time (UTC-5)
 
         // Function to update the clock
         function updateClock() {
@@ -40,7 +40,8 @@
             const minutes = Math.floor((elapsed / (1000 * 60)) % 60).toString().padStart(2, '0');
             const seconds = Math.floor((elapsed / 1000) % 60).toString().padStart(2, '0');
 
-            document.getElementById('clock').textContent = `${days}:${hours}:${minutes}:${seconds}`;
+            // Display the time with spaces between
+            document.getElementById('clock').textContent = `${days} ${hours} ${minutes} ${seconds}`;
         }
 
         // Update the clock every second
