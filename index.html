@@ -7,6 +7,7 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -14,21 +15,34 @@
             background-color: white;
             font-family: Arial, sans-serif;
         }
+        .image {
+            width: 80%; /* Set the image width relative to the viewport */
+            max-width: 600px; /* Optional: limit the maximum width */
+            margin-bottom: 20px; /* Add space between the image and clock */
+        }
         .clock {
+            width: 80%; /* Match the clock width to the image */
+            max-width: 600px; /* Optional: limit the maximum width */
             font-size: 5rem;
             color: black;
             text-align: center;
+            white-space: nowrap; /* Prevent text wrapping */
+            overflow: hidden; /* Ensure it doesn’t overflow the container */
         }
     </style>
 </head>
 <body>
+    <!-- Image Section -->
+    <img src="imback.jpg" alt="Top Image" class="image">
+
+    <!-- Clock Section -->
     <div class="clock" id="clock">
         Loading...
     </div>
 
     <script>
         // Set the start date and time in Eastern Time (EST/EDT)
-        const startDate = new Date('2024-12-24T22:57:50-05:00'); // Eastern Time (UTC-5)
+        const startDate = new Date('2024-12-24T21:57:50-05:00'); // Eastern Time (UTC-5)
 
         // Function to update the clock
         function updateClock() {
