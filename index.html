@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Since</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+        .clock {
+            font-size: 5rem;
+            color: black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock" id="clock">
+        Loading...
+    </div>
+
+    <script>
+        // Set the start date and time
+        const startDate = new Date('2024-12-24T22:57:50');
+
+        // Function to update the clock
+        function updateClock() {
+            const now = new Date();
+            const elapsed = now - startDate;
+
+            const days = Math.floor(elapsed / (1000 * 60 * 60 * 24)).toString().padStart(6, '0');
+            const hours = Math.floor((elapsed / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
+            const minutes = Math.floor((elapsed / (1000 * 60)) % 60).toString().padStart(2, '0');
+            const seconds = Math.floor((elapsed / 1000) % 60).toString().padStart(2, '0');
+
+            document.getElementById('clock').textContent = `${days}:${hours}:${minutes}:${seconds}`;
+        }
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
